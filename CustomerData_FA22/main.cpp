@@ -13,9 +13,13 @@ using namespace std;
 string fName;
 string lName;
 
+// Birthday data
 string birthMonth;
 string birthDay;
 string birthYear;
+
+// Customer age
+int age;
 
 // Precondition: Include iostream library
 // Postcondition: Collected customer name data
@@ -25,14 +29,15 @@ void InputName();
 // Postcondition: Collected customer birthday data
 void InputBirthDay();
 
+// Precondition: InputBirthDay has called.
+// Postcondition: Age is calculated and stored.
+void CalculateAge();
+
 int main()
 {
 	InputName();
 	InputBirthDay();
-
-	int age = 2022 - stoi(birthYear);
-
-	cout << "\nYour age is " << age;
+	CalculateAge();
 
 	return 0;
 }
@@ -53,4 +58,9 @@ void InputBirthDay()
 	cin >> birthDay;
 	cout << "\nPlease enter your birth year as a four digit number: ";
 	cin >> birthYear;
+}
+
+void CalculateAge()
+{
+	age = 2022 - stoi(birthYear);
 }
